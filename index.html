@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <script src="./js/bootstrap.bundle.min.js" defer></script>
+    <script src="./js/main.js" defer></script>
+    <title>Array Operations</title>
+  </head>
+  <body>
+    <main class="vh-100 bg-dark">
+      <div
+        class="container vh-100 d-flex justify-content-center align-items-center flex-column"
+        id="homePage"
+      >
+        <div
+          class="row justify-content-center align-items-center g-2 w-75 h-25 rounded-4"
+        >
+          <div class="col-12">
+            <div class="row justify-content-center align-items-center g-2">
+              <div class="col-4">
+                <div id="input">
+                  <h2 class="text-white">Input Two arrays</h2>
+                </div>
+              </div>
+              <div class="col-4">
+                <div>
+                  <div id="arr" class="d-flex flex-column gap-3">
+                    <input
+                      type="text"
+                      placeholder="eg: [1,2,3,4,5,6]"
+                      id="input1"
+                      class="form-control"
+                    />
+                    <input
+                      type="text"
+                      placeholder="eg: [1,2,3,4,5,6]"
+                      id="input2"
+                      class="form-control"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row justify-content-center align-items-center g-2 w-100">
+          <div class="col-6">
+            <div class="w-100">
+              <input
+                name=""
+                id="submit"
+                class="btn btn-primary w-100"
+                type="button"
+                value="Submit"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="container vh-100 d-flex justify-content-center align-items-center mainPage d-none"
+        id="mainPage"
+      >
+        <div
+          class="row justify-content-center align-items-center g-2 flex-column bg-light p-5 rounded-3"
+        >
+          <div class="col pb-5">
+            <div>
+              <h2 id="displayArr1">Array1: [1,2,3,4,5,6,7,8]</h2>
+              <h2 id="displayArr2">Array2: [1,2,3,4,5,6,7,8]</h2>
+            </div>
+          </div>
+          <div class="col pb-5 pt-2 d-flex flex-column">
+            <div class="d-flex">
+              <div class="row justify-content-center align-items-center">
+                <div class="col">
+                  <div>
+                    <label for="dropList">Choose What to apply</label>
+                  </div>
+                </div>
+                <div class="col d-flex">
+                  <div class="selectOptions d-flex justify-content-between">
+                    <select
+                      name=""
+                      id="dropList"
+                      class="form-select w-100"
+                      aria-label="Default select example"
+                    >
+                      <option value="0" selected disabled>Choose...</option>
+                      <option value="swap">Swap</option>
+                      <option value="insert">Insert</option>
+                      <option value="delete">Delete</option>
+                      <option value="countOccurrence">Count Occurrence</option>
+                      <option value="randomize">Randomize</option>
+                      <option value="split">Split</option>
+                      <option value="concatenate">Concatenate</option>
+                      <option value="twoDArray">2D Array</option>
+                      <option value="copyArray">Copy</option>
+                      <option value="invertArray">Invert</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="" id="moreParams">
+              <div id="insert" class="d-none Operations">
+                <div
+                  class="row justify-content-center align-items-center flex-column"
+                >
+                  <div class="col">
+                    <div class="row justify-content-center align-items-center">
+                      <div class="col">
+                        <div>
+                          <label for="insertArray"
+                            >insert at which Array?</label
+                          >
+                        </div>
+                      </div>
+                      <div class="col">
+                        <div>
+                          <select
+                            name=""
+                            id="insertArray"
+                            class="form-select w-75 my-2"
+                          >
+                            <option value="0" selected disabled>
+                              Choose...
+                            </option>
+                            <option value="1">Array1</option>
+                            <option value="2">Array2</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div
+                      class="row justify-content-center align-items-center g-2"
+                    >
+                      <div class="col">
+                        <div>
+                          <label for="position">Position</label>
+                        </div>
+                      </div>
+                      <div class="col">
+                        <div>
+                          <input
+                            type="number"
+                            id="position"
+                            class="form-control w-75"
+                            min="0"
+                            value="0"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col my-2">
+                    <div
+                      class="row justify-content-center align-items-center g-2"
+                    >
+                      <div class="col">
+                        <div>
+                          <label for="element">Element</label>
+                        </div>
+                      </div>
+                      <div class="col">
+                        <div>
+                          <input
+                            type="number"
+                            id="element"
+                            class="form-control w-75"
+                            min="0"
+                            value="0"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div id="delete" class="d-none Operations">
+                <div
+                  class="row justify-content-center align-items-center flex-column"
+                >
+                  <div class="col">
+                    <div class="row justify-content-center align-items-center">
+                      <div class="col">
+                        <div>
+                          <label for="insertArray"
+                            >delete at which Array?</label
+                          >
+                        </div>
+                      </div>
+                      <div class="col">
+                        <div>
+                          <select
+                            name=""
+                            id="deleteArray"
+                            class="form-select w-75 my-2"
+                          >
+                            <option value="0" selected disabled>
+                              Choose...
+                            </option>
+                            <option value="1">Array1</option>
+                            <option value="2">Array2</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div
+                      class="row justify-content-center align-items-center g-2"
+                    >
+                      <div class="col">
+                        <div>
+                          <label for="position">Position</label>
+                        </div>
+                      </div>
+                      <div class="col">
+                        <div>
+                          <input
+                            type="number"
+                            id="delPosition"
+                            class="form-control w-75"
+                            min="0"
+                            value="0"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div id="countOccurrence" class="d-none Operations">
+                <div
+                  class="row justify-content-center align-items-center flex-column"
+                >
+                  <div class="col">
+                    <div class="row justify-content-center align-items-center">
+                      <div class="col">
+                        <div>
+                          <label for="countArray">At which Array?</label>
+                        </div>
+                      </div>
+                      <div class="col">
+                        <div>
+                          <select
+                            name=""
+                            id="countArray"
+                            class="form-select w-75 my-2"
+                          >
+                            <option value="0" selected disabled>
+                              Choose...
+                            </option>
+                            <option value="1">Array1</option>
+                            <option value="2">Array2</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div id="randomize" class="d-none Operations mt-2">
+                <div
+                  class="row justify-content-center align-items-center flex-column"
+                >
+                  <div class="col">
+                    <div
+                      class="row justify-content-center align-items-center g-2"
+                    >
+                      <div class="col">
+                        <div>
+                          <label for="minValue">min</label>
+                        </div>
+                      </div>
+                      <div class="col">
+                        <div>
+                          <input
+                            type="number"
+                            id="minValue"
+                            class="form-control w-75"
+                            min="0"
+                            value="0"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col my-2">
+                    <div
+                      class="row justify-content-center align-items-center g-2"
+                    >
+                      <div class="col">
+                        <div>
+                          <label for="maxValue">max</label>
+                        </div>
+                      </div>
+                      <div class="col">
+                        <div>
+                          <input
+                            type="number"
+                            id="maxValue"
+                            class="form-control w-75"
+                            min="0"
+                            value="0"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div id="split" class="d-none Operations">
+                <div
+                  class="row justify-content-center align-items-center flex-column"
+                >
+                  <div class="col">
+                    <div class="row justify-content-center align-items-center">
+                      <div class="col">
+                        <div>
+                          <label for="split">At which Array?</label>
+                        </div>
+                      </div>
+                      <div class="col">
+                        <div>
+                          <select
+                            name=""
+                            id="splitValue"
+                            class="form-select w-75 my-2"
+                          >
+                            <option value="0" selected disabled>
+                              Choose...
+                            </option>
+                            <option value="1">Array1</option>
+                            <option value="2">Array2</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div id="copyArray" class="d-none Operations">
+                <div
+                  class="row justify-content-center align-items-center flex-column"
+                >
+                  <div class="col">
+                    <div class="row justify-content-center align-items-center">
+                      <div class="col">
+                        <div>
+                          <label for="arrCopy">At which Array?</label>
+                        </div>
+                      </div>
+                      <div class="col">
+                        <div>
+                          <select
+                            name=""
+                            id="arrCopy"
+                            class="form-select w-75 my-2"
+                          >
+                            <option value="0" selected disabled>
+                              Choose...
+                            </option>
+                            <option value="1">Array1</option>
+                            <option value="2">Array2</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div id="invertArray" class="d-none Operations">
+                <div
+                  class="row justify-content-center align-items-center flex-column"
+                >
+                  <div class="col">
+                    <div class="row justify-content-center align-items-center">
+                      <div class="col">
+                        <div>
+                          <label for="invertArrayval">At which Array?</label>
+                        </div>
+                      </div>
+                      <div class="col">
+                        <div>
+                          <select
+                            name=""
+                            id="invertArrayval"
+                            class="form-select w-75 my-2"
+                          >
+                            <option value="0" selected disabled>
+                              Choose...
+                            </option>
+                            <option value="1">Array1</option>
+                            <option value="2">Array2</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="result mt-2" id="result">
+              <h3 class="text-center">Result:</h3>
+              <div id="showResult"></div>
+            </div>
+          </div>
+          <div class="col">
+            <div>
+              <button type="button" class="btn btn-primary w-100" id="apply">
+                Apply
+              </button>
+              <small
+                ><span class="badge text-bg-info text-wrap">Note : </span> Any
+                operation doesn't affect the original array <br />
+                for simplification only</small
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
+
+<!-- // 1- swap 2 arrays 2*5 elements print before and after
+
+// 2- insert element in some position print before and after
+
+// 3- delete element in some position print before and after
+
+// 4- count occurrence of the element (count how many elements is occurred in two 5 element arrays)
+// 	example [1,7,9,5,3] ,[2,5,7,6,7]
+// 	1 : 1 time
+// 	7 : 3 times
+// 	9 : 1 time
+// 	5 : 2 times
+// 	3 : 1 time
+// 	2 : 1 time
+// 	6 : 1 time
+
+// 5-random 5 INTEGER elements array (user enter range randomness <<<example from 5 to 10>>>> and the array is randomized in this range)
+// 	example user enter 0 and 64 [4 , 41 , 29 , 15 , 63]
+
+// 6- you have an array slice it to two arrays odd and even example [1 , 2 , 71 , 3 , 115] => [1 ,71 ,3 ,115] [2]
+
+// 7- concatenate two 5 elements Integer arrays and leave a space between them
+
+// 8- user inputs array of arrays[3][3] and print this 2D array
+
+// 9-copy array to another array and print both
+
+// 10-copy inverted array example arr1[1,2,3,4] => cpd_array1[4,3,2,1] -->
